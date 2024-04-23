@@ -28,6 +28,13 @@
 </head>
 <body>
 
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -155,7 +162,7 @@
     <div class="hero-body">
       <img src="./static/images/teaser.png" alt="Teaser Image" height="100%">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Parts2Whole</span> generate realistic human images in various postures from referential human part images of any quantity and different origins.
+        <span class="dnerf">Parts2Whole</span> generates realistic human images in various postures from referential human part images<br> of any quantity and different origins.
       </h2>
     </div>
   </div>
@@ -198,12 +205,16 @@
       <div class="is-centered has-text-centered">
         <h2 class="title is-3">Method</h2>
       </div>
-      <div class="hero-body">
+      <div class="hero-body" style="padding-bottom: 0;">
         <img src="./static/images/overview.png" alt="Method Overview" height="100%">
-        <div class="content has-text-justified">
-          <p>
-            Overview of Parts2Whole. Based on the text-to-image diffusion model, our method designs an appearance encoder for encoding various parts of human appearance into multi-scale feature maps. We build this encoder by copying the network structure and pretrained weights from denoising U-Net. Features obtained from reference images with their textual labels are injected into the generation process by shared attention mechanism layer by layer. To precisely select the specified parts from reference images, we enhance the vanilla self-attention mechanism by incorporating subject masks in the reference images. Illustration of one block in U-Net is shown on the right part.
-          </p>
+      </div>
+      <div class="columns is-centered has-text-centered" style="padding-bottom: 3rem">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              Overview of Parts2Whole. Based on the text-to-image diffusion model, our method designs an appearance encoder for encoding various parts of human appearance into multi-scale feature maps. We build this encoder by copying the network structure and pretrained weights from denoising U-Net. Features obtained from reference images with their textual labels are injected into the generation process by shared attention mechanism layer by layer. To precisely select the specified parts from reference images, we enhance the vanilla self-attention mechanism by incorporating subject masks in the reference images. Illustration of one block in U-Net is shown on the right part.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -218,12 +229,16 @@
       <div class="is-centered has-text-centered">
         <h2 class="title is-3">Customize Your Whole Body</h2>
       </div>
-      <div class="hero-body">
+      <div class="hero-body" style="padding-bottom: 0;">
         <img src="./static/images/any_person.png" alt="Result 1" height="100%">
-        <div class="content has-text-justified">
-          <p>
+      </div>
+      <div class="columns is-centered has-text-centered" style="padding-bottom: 3rem">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
             Parts2Whole supports generating human images conditioned on selected parts from different humans as control conditions. For example, the face from person A, the hair or headwear from person B, the upper clothes from person C, and the lower clothes from person D.
           </p>
+          </div>
         </div>
       </div>
     </div>
@@ -234,12 +249,16 @@
       <div class="is-centered has-text-centered">
         <h2 class="title is-3">Specifiy Any Part</h2>
       </div>
-      <div class="hero-body">
+      <div class="hero-body" style="padding-bottom: 0;">
         <img src="./static/images/page_any_quantity.png" alt="Result 2" height="100%">
-        <div class="content has-text-justified">
-          <p>
+      </div>
+      <div class="columns is-centered has-text-centered" style="padding-bottom: 3rem">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
             Parts2Whole supports generating human images from varying numbers of condition images, such as single hair or face input, or arbitrary combinations like "Face + Hair", "Face + Clothes", and "Upper body clothes + Lower body clothes".
-          </p>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -250,7 +269,9 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+    <div class="has-text-centered">
+      <h2 class="title">BibTeX</h2>
+    </div>
     <!-- <pre><code>@article{park2021nerfies,
   author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
   title     = {Nerfies: Deformable Neural Radiance Fields},
