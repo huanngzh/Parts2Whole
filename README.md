@@ -4,7 +4,7 @@
 
 > Preparing the stable model... Stay tuned!
 
-## 🏠 <a href="https://huanngzh.github.io/Parts2Whole/" target="_blank">Project Page</a> | <a href="" target="_blank">Paper</a>
+## 🏠 <a href="https://huanngzh.github.io/Parts2Whole/" target="_blank">Project Page</a> | <a href="https://arxiv.org/abs/2404.15267" target="_blank">Paper</a>
 
 ![img:teaser](assets/teaser_mini.png)
 
@@ -29,5 +29,10 @@ We appreciate the open source of the following projects:
 If you find this repository useful, please consider citing:
 
 ```
-
+@misc{huang2024parts2whole,
+  title={From Parts to Whole: A Unified Reference Framework for Controllable Human Image Generation},
+  author={Huang, Zehuan and Fan, Hongxing and Wang, Lipeng and Sheng, Lu},
+  journal={arXiv preprint arXiv:2404.15267},
+  year={2024}
+}
 ```
