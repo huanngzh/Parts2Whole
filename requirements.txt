@@ -1,0 +1,25 @@
+accelerate==0.22.0
+av==11.0.0
+decord==0.6.0
+controlnet_aux==0.0.7
+diffusers==0.25.0
+einops==0.6.1
+gradio==3.41.2
+imageio-ffmpeg==0.4.9
+imageio==2.33.0
+moviepy
+omegaconf==2.3.0
+onnxruntime-gpu==1.12.0
+opencv-python==4.8.1.78
+Pillow==9.5.0
+safetensors==0.3.3
+torch==2.0.1
+torchvision==0.15.2
+tqdm==4.66.1
+transformers==4.32.0
+wandb
+
+# Real RSRGAN
+basicsr>=1.4.2
+facexlib>=0.2.5
+gfpgan>=1.3.5
