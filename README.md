@@ -77,7 +77,7 @@ input_dict = {
 
 ⭐️⭐️⭐️ The keys in these three parts also have explanations. Keys in `appearance` and `mask` should be the same. The choices include "upper body clothes", "lower body clothes", "whole body clothes", "hair or headwear", "face", "shoes". Key of `structure` should be "densepose". (The openpose model has not been release.)
 
-🔨🔨🔨 In order to conveniently obtain the mask of each reference image, we also provide corresponding tools and explain how to use them in [Tools](#🔨-tools). First, you can use Real-ESRGAN to increase the resolution of the reference image, and use segformer to obtain the masks of various parts of the human body.
+🔨🔨🔨 In order to conveniently obtain the mask of each reference image, we also provide corresponding tools and explain how to use them in [Tools](#-tools). First, you can use Real-ESRGAN to increase the resolution of the reference image, and use segformer to obtain the masks of various parts of the human body.
 
 ## 😊 Evaluation
 
