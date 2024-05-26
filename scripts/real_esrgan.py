@@ -183,7 +183,7 @@ def main():
             "pretrained_weights", "Real-ESRGAN", args.model_name + ".pth"
         )
         if not os.path.isfile(model_path):
-            ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+            ROOT_DIR = os.getcwd()
             for url in file_url:
                 # model_path will be updated
                 model_path = load_file_from_url(
