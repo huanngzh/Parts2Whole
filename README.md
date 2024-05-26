@@ -5,11 +5,13 @@
 - [x] Inference code and pretrained models.
 - [x] Evaluation code.
 - [ ] Training code.
-- [ ] Training data.
+- [x] Training data.
 - [ ] New model based on [Stable Diffusion 2-1](https://huggingface.co/stabilityai/stable-diffusion-2-1).
 
 ## 🔥 Updates
 
+[2024-05-26] Dataset is released [here](https://huggingface.co/datasets/huanngzh/DeepFashion-MultiModal-Parts2Whole). Refer to [Dataset](#-dataset).
+<br/>
 [2024-05-06] 🔥🔥🔥 Code is released. Enjoy the human parts composition!
 
 ## 🏠 <a href="https://huanngzh.github.io/Parts2Whole/" target="_blank">Project Page</a> | <a href="https://arxiv.org/abs/2404.15267" target="_blank">Paper</a> | <a href="https://huggingface.co/huanngzh/Parts2Whole" target="_blank">Model</a>
@@ -78,6 +80,22 @@ input_dict = {
 ⭐️⭐️⭐️ The keys in these three parts also have explanations. Keys in `appearance` and `mask` should be the same. The choices include "upper body clothes", "lower body clothes", "whole body clothes", "hair or headwear", "face", "shoes". Key of `structure` should be "densepose". (The openpose model has not been release.)
 
 🔨🔨🔨 In order to conveniently obtain the mask of each reference image, we also provide corresponding tools and explain how to use them in [Tools](#-tools). First, you can use Real-ESRGAN to increase the resolution of the reference image, and use segformer to obtain the masks of various parts of the human body.
+
+## 📊 Dataset
+![data_sample](assets/data_sample.png)
+
+Our dataset has been released [here](https://huggingface.co/datasets/huanngzh/DeepFashion-MultiModal-Parts2Whole). We provide the download and unzip script in `download_dataset.py`, please use the following command:
+```Bash
+python download_dataset.py
+```
+It will prepare the dataset in the folder `data/DeepFashion-MultiModal-Parts2Whole`, so that you can run our config to train the model or run our dataset file `parts2whole/data/ref_trg.py` to check our dataset.
+
+This human image dataset comprising about 41,500 reference-target pairs. Each pair in this dataset includes multiple reference images, including pose maps, various aspects of human appearance (e.g., hair, face, clothes, shoes), and a target image featuring the same individual (ID), along with textual captions. Details about the dataset refer to [our dataset repo](https://huggingface.co/datasets/huanngzh/DeepFashion-MultiModal-Parts2Whole).
+
+> Our dataset is post-processed from [DeepFashion-Multimodal dataset](https://github.com/yumingj/DeepFashion-MultiModal).
+
+## 🏋️ Training
+
 
 ## 😊 Evaluation
 
