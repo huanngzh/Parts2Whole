@@ -142,8 +142,8 @@ if __name__ == "__main__":
     from torch.utils.data import DataLoader
 
     dataset = RefTrgDataset(
-        root_dir="data/DeepFashion-MultiModal",
-        jsonl_path="data/DeepFashion-MultiModal/data_softmask_train.jsonl",
+        root_dir="data/DeepFashion-MultiModal-Parts2Whole",
+        jsonl_path="data/DeepFashion-MultiModal-Parts2Whole/train.jsonl",
         image_wh=(768, 768),
         load_rgba=False,
         bg_color="gray",

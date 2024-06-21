@@ -4,12 +4,13 @@
 
 - [x] Inference code and pretrained models.
 - [x] Evaluation code.
-- [ ] Training code.
+- [x] Training code.
 - [x] Training data.
 - [ ] New model based on [Stable Diffusion 2-1](https://huggingface.co/stabilityai/stable-diffusion-2-1).
 
 ## 🔥 Updates
 
+[2024-06-21] Release our training code. Refer to [Training](#️-training).
 [2024-05-26] Dataset is released [here](https://huggingface.co/datasets/huanngzh/DeepFashion-MultiModal-Parts2Whole). Refer to [Dataset](#-dataset).
 <br/>
 [2024-05-06] 🔥🔥🔥 Code is released. Enjoy the human parts composition!
@@ -90,12 +91,49 @@ python download_dataset.py
 ```
 It will prepare the dataset in the folder `data/DeepFashion-MultiModal-Parts2Whole`, so that you can run our config to train the model or run our dataset file `parts2whole/data/ref_trg.py` to check our dataset.
 
+Make sure that the dataset is organized as follows:
+```Bash
+DeepFashion-MultiModal-Parts2Whole
+# Structure signals
+|-- densepose
+|-- openpose
+# Appearance conditions
+|-- face
+|-- hair_headwear
+|-- lower_body_clothes
+|-- upper_body_clothes
+|-- whole_body_clothes
+|-- shoes
+# Target images
+|-- images
+# Caption file
+|-- train.jsonl
+`-- test.jsonl
+```
+
 This human image dataset comprising about 41,500 reference-target pairs. Each pair in this dataset includes multiple reference images, including pose maps, various aspects of human appearance (e.g., hair, face, clothes, shoes), and a target image featuring the same individual (ID), along with textual captions. Details about the dataset refer to [our dataset repo](https://huggingface.co/datasets/huanngzh/DeepFashion-MultiModal-Parts2Whole).
 
 > Our dataset is post-processed from [DeepFashion-Multimodal dataset](https://github.com/yumingj/DeepFashion-MultiModal).
 
 ## 🏋️ Training
 
+If training our parts2whole in a single device, use the following command:
+```Bash
+python train.py --config configs/train-sd15.yaml
+```
+
+If training on a DDP environment (assume 8 devices here), run the command:
+```Bash
+accelerate launch \
+--mixed_precision=fp16 \
+--num_processes=$((8*$WORLD_SIZE)) \  # 8 is the number of devices
+--num_machines=$WORLD_SIZE \
+--multi_gpu \
+--machine_rank=$RANK \
+train.py --config configs/train-sd15.yaml
+```
+
+In our config file, the batch size per device is set to 8 (which is recommended for a device of 80G memory). If you train on a device of smaller memory, you need to reduce it.
 
 ## 😊 Evaluation
 

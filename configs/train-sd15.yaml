@@ -1,0 +1,68 @@
+output_dir: "outputs/parts2whole-sd15"
+
+### Training and dataset
+train_data:
+  root_dir: "data/DeepFashion-MultiModal-Parts2Whole"
+  jsonl_path: "data/DeepFashion-MultiModal-Parts2Whole/train.jsonl"
+  image_wh: 512
+  load_rgba: false
+validation_data:
+  inputs:
+    - {"prompt": "This person is wearing a short-sleeve shirt with solid color patterns. The shirt is with cotton fabric. It has a crew neckline. The pants this person wears is of short length. The pants are with cotton fabric and pure color patterns. There is a hat in his head.", "appearance": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/MEN-Denim-id_00000265-01_2_side_rgb.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/MEN-Denim-id_00000265-01_2_side_rgb.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/MEN-Denim-id_00000265-01_2_side_rgb.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/MEN-Denim-id_00000265-01_2_side_rgb.jpg", "face": "data/DeepFashion-MultiModal/face/MEN-Denim-id_00000265-01_2_side_rgb.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/MEN-Denim-id_00000265-01_2_side_rgb.jpg"}, "mask_dict": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/MEN-Denim-id_00000265-01_2_side_mask.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/MEN-Denim-id_00000265-01_2_side_mask.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/MEN-Denim-id_00000265-01_2_side_mask.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/MEN-Denim-id_00000265-01_2_side_mask.jpg", "face": "data/DeepFashion-MultiModal/face/MEN-Denim-id_00000265-01_2_side_mask.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/MEN-Denim-id_00000265-01_2_side_mask.jpg"}, "structure": {"densepose": "data/DeepFashion-MultiModal/densepose/MEN-Denim-id_00000265-01_1_front_densepose.png"}}
+    - {"prompt": "The guy wears a tank tank shirt with pure color patterns and a long trousers. The tank shirt is with cotton fabric and its neckline is round. The trousers are with other fabric and complicated patterns. This gentleman has neckwear. This person wears a hat.", "appearance": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/MEN-Pants-id_00005679-02_4_full_rgb.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/MEN-Pants-id_00005679-02_4_full_rgb.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/MEN-Pants-id_00005679-02_4_full_rgb.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/MEN-Pants-id_00005679-02_4_full_rgb.jpg", "face": "data/DeepFashion-MultiModal/face/MEN-Pants-id_00005679-02_4_full_rgb.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/MEN-Pants-id_00005679-02_4_full_rgb.jpg"}, "mask_dict": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/MEN-Pants-id_00005679-02_4_full_mask.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/MEN-Pants-id_00005679-02_4_full_mask.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/MEN-Pants-id_00005679-02_4_full_mask.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/MEN-Pants-id_00005679-02_4_full_mask.jpg", "face": "data/DeepFashion-MultiModal/face/MEN-Pants-id_00005679-02_4_full_mask.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/MEN-Pants-id_00005679-02_4_full_mask.jpg"}, "structure": {"densepose": "data/DeepFashion-MultiModal/densepose/MEN-Pants-id_00005679-02_4_full_densepose.png"}}
+    - {"prompt": "This person is wearing a tank tank shirt with graphic patterns. The tank shirt is with chiffon fabric. The neckline of the tank shirt is round. The person is wearing a ring on her finger.", "appearance": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_rgb.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_rgb.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_rgb.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Blouses_Shirts-id_00000397-02_4_full_rgb.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Blouses_Shirts-id_00000397-02_4_full_rgb.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_rgb.jpg"}, "mask_dict": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_mask.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_mask.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_mask.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Blouses_Shirts-id_00000397-02_4_full_mask.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Blouses_Shirts-id_00000397-02_4_full_mask.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Blouses_Shirts-id_00000397-02_4_full_mask.jpg"}, "structure": {"densepose": "data/DeepFashion-MultiModal/densepose/WOMEN-Blouses_Shirts-id_00000397-02_1_front_densepose.png"}}
+    - {"prompt": "The tank shirt the person wears has no sleeves and its fabric is chiffon. The pattern of it is solid color. There is an accessory on her wrist.", "appearance": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_rgb.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_rgb.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_rgb.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Blouses_Shirts-id_00006623-01_4_full_rgb.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Blouses_Shirts-id_00006623-01_4_full_rgb.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_rgb.jpg"}, "mask_dict": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_mask.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_mask.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_mask.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Blouses_Shirts-id_00006623-01_4_full_mask.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Blouses_Shirts-id_00006623-01_4_full_mask.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Blouses_Shirts-id_00006623-01_4_full_mask.jpg"}, "structure": {"densepose": "data/DeepFashion-MultiModal/densepose/WOMEN-Blouses_Shirts-id_00006623-01_7_additional_densepose.png"}}
+    - {"prompt": "Her shirt has long sleeves, cotton fabric and graphic patterns. The neckline of it is v-shape. This person wears a long trousers. The trousers are with cotton fabric and graphic patterns. There is an accessory on her wrist. There is a ring on her finger.", "appearance": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Dresses-id_00000636-02_3_back_rgb.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Dresses-id_00000636-02_3_back_rgb.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Dresses-id_00000636-02_3_back_rgb.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Dresses-id_00000636-02_3_back_rgb.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Dresses-id_00000636-02_3_back_rgb.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Dresses-id_00000636-02_3_back_rgb.jpg"}, "mask_dict": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Dresses-id_00000636-02_3_back_mask.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Dresses-id_00000636-02_3_back_mask.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Dresses-id_00000636-02_3_back_mask.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Dresses-id_00000636-02_3_back_mask.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Dresses-id_00000636-02_3_back_mask.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Dresses-id_00000636-02_3_back_mask.jpg"}, "structure": {"densepose": "data/DeepFashion-MultiModal/densepose/WOMEN-Dresses-id_00000636-02_4_full_densepose.png"}}
+    - {"prompt": "a person, realistic", "appearance": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Sweaters-id_00004836-02_1_front_rgb.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Sweaters-id_00004836-02_1_front_rgb.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Sweaters-id_00004836-02_1_front_rgb.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Sweaters-id_00004836-02_1_front_rgb.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Sweaters-id_00004836-02_1_front_rgb.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Sweaters-id_00004836-02_1_front_rgb.jpg"}, "mask_dict": {"upper body clothes": "data/DeepFashion-MultiModal/upper_body_clothes/WOMEN-Sweaters-id_00004836-02_1_front_mask.jpg", "lower body clothes": "data/DeepFashion-MultiModal/lower_body_clothes/WOMEN-Sweaters-id_00004836-02_1_front_mask.jpg", "whole body clothes": "data/DeepFashion-MultiModal/whole_body_clothes/WOMEN-Sweaters-id_00004836-02_1_front_mask.jpg", "hair or headwear": "data/DeepFashion-MultiModal/hair_headwear/WOMEN-Sweaters-id_00004836-02_1_front_mask.jpg", "face": "data/DeepFashion-MultiModal/face/WOMEN-Sweaters-id_00004836-02_1_front_mask.jpg", "shoes": "data/DeepFashion-MultiModal/shoes/WOMEN-Sweaters-id_00004836-02_1_front_mask.jpg"}, "structure": {"densepose": "data/DeepFashion-MultiModal/densepose/WOMEN-Sweaters-id_00004836-02_7_additional_densepose.png"}}
+  num_inference_steps: 50
+  guidance_scale: 7.5
+  height: 680
+  width: 512
+  use_decoupled_cross_attn: ${use_decoupled_cross_attn}
+  reference_fusion_blocks: ${reference_attn_control_kwargs.fusion_blocks}
+train_batch_size: 8
+num_workers: 16
+seed: 42
+classifier_free_guidance: 0.1
+reference_dropout: 0.2
+enable_xformers_memory_efficient_attention: false
+
+### Model
+pretrained_model_path: "runwayml/stable-diffusion-v1-5"
+pretrained_image_encoder_path: "lambdalabs/sd-image-variations-diffusers"
+load_additional_modules_from_pipeline: false
+use_decoupled_cross_attn: true
+resume_from_checkpoint: latest
+
+noise_scheduler_kwargs:
+  num_train_timesteps: 1000
+  beta_start: 0.00085
+  beta_end: 0.012
+  # beta_schedule: "scaled_linear"
+  beta_schedule: "linear"
+  steps_offset: 1
+  clip_sample: false
+reference_attn_control_kwargs:
+  fusion_blocks: "full"
+pose_guider_kwargs:
+  conditioning_channels: 3
+  conditioning_embedding_channels: 320
+  block_out_channels: [16, 32, 96, 256]
+
+trainable_modules:
+  - "."
+
+extra:
+  pose_type: "densepose"
+
+### Optimizer
+mixed_precision: fp16
+learning_rate: 2.e-5
+gradient_accumulation_steps: 1
+
+### Checkpointing and logging
+max_train_steps: 30000
+validation_steps: 2000
+checkpointing_steps: 5000
+tracker_project_name: "parts2whole"
+# report_to: wandb
