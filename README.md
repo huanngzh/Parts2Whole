@@ -11,6 +11,7 @@
 ## 🔥 Updates
 
 [2024-06-21] Release our training code. Refer to [Training](#️-training).
+<br/>
 [2024-05-26] Dataset is released [here](https://huggingface.co/datasets/huanngzh/DeepFashion-MultiModal-Parts2Whole). Refer to [Dataset](#-dataset).
 <br/>
 [2024-05-06] 🔥🔥🔥 Code is released. Enjoy the human parts composition!
