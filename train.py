@@ -317,6 +317,11 @@ def main(
     elif accelerator.mixed_precision == "bf16":
         weight_dtype = torch.bfloat16
 
+    # Get CLIP image mean and std for normalization
+    _prepare_clip_params = lambda x: torch.as_tensor(x)[:, None, None].to(accelerator.device, dtype=weight_dtype)
+    clip_image_mean = _prepare_clip_params(feature_extractor.image_mean)
+    clip_image_std = _prepare_clip_params(feature_extractor.image_std)
+
     # Move image_encoder and vae to gpu and cast to weight_dtype
     text_encoder.to(accelerator.device, dtype=weight_dtype)
     image_encoder.to(accelerator.device, dtype=weight_dtype)
@@ -381,6 +386,25 @@ def main(
         disable=not accelerator.is_local_main_process,
     )
     progress_bar.set_description("Steps")
+
+    def clip_encode(pixel_values):
+        # Process reference image for CLIP image encoder.
+        # NOTE: Here we implement without using the utility function of
+        # feature_extractor due to its low speed
+        clip_ref_image = TF.resize(
+            pixel_values,
+            (
+                feature_extractor.crop_size["height"],
+                feature_extractor.crop_size["width"],
+            ),
+            interpolation=InterpolationMode.BICUBIC,
+        )
+        clip_ref_image = ((clip_ref_image - clip_image_mean) / clip_image_std).to(
+            device=accelerator.device, dtype=weight_dtype
+        )
+        encoder_hidden_states = image_encoder(clip_ref_image).image_embeds.unsqueeze(1)
+
+        return encoder_hidden_states
 
     def clip_encode_text(text):
         text_token = tokenizer(
@@ -474,12 +498,8 @@ def main(
             # Process reference appearance images for clip conditioning -> [bs,1,768]
             image_encoder_hidden_states_dunet = []
             for key, value in appearance_dict.items():
-                value = (value / 2 + 0.5).to(dtype=torch.float32)  # Normalize to [0, 1]
                 # Get the image embedding for conditioning -> [bs,1,768]
-                clip_ref_image = feature_extractor(value, do_rescale=False, return_tensors="pt").pixel_values.to(
-                    device=accelerator.device, dtype=weight_dtype
-                )
-                _encoder_hidden_states = image_encoder(clip_ref_image).image_embeds.unsqueeze(1)
+                _encoder_hidden_states = clip_encode(value / 2 + 0.5)
                 image_encoder_hidden_states_dunet.append(_encoder_hidden_states)
 
             # Padding image_encoder_hidden_states_dunet to length 6 # FIXME: hard-code 6
