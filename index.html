@@ -6,7 +6,7 @@
         content="Parts2Whole generates realistic human images in various postures from images of body parts of any quatity or different origins.">
   <meta name="keywords" content="Parts2Whole, Human Image Generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>From Parts to Whole: A Unified Reference Framework for Controllable Human Image Generation</title>
+  <title>Parts2Whole: Generalizable Multi-Part Portrait Customization</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -74,17 +74,23 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">From Parts to Whole: A Unified Reference Framework for Controllable Human Image Generation</h1>
+          <h1 class="title is-1 publication-title">Parts2Whole: Generalizable Multi-Part Portrait Customization</h1>
+          <h2 class="title is-3 publication-title" style="color: #3390ec"> TIP 2025 </h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/huanngzh" target="_blank">Zehuan Huang</a><sup>*</sup>,</span>
+              <a href="https://github.com/fanhongxing" target="_blank">Hongxing Fan</a><sup>*</sup>,</span>
             <span class="author-block">
-              <a href="">Hongxing Fan</a><sup>*</sup>,</span>
+              <a href="https://github.com/huanngzh" target="_blank">Zehuan Huang</a><sup>*†</sup>,</span>
             <span class="author-block">
-              <a href="">Lipeng Wang</a><sup>*</sup>,
+              <a href="">Lipeng Wang</a>,
+            <span class="author-block">
+              <a href="">Haohua Chen</a>,
+            <span class="author-block">
+              <a href="">Li Yin</a>,
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=_8lB7xcAAAAJ" target="_blank">Lu Sheng</a><sup>†</sup>
+              <a href="https://scholar.google.com/citations?user=_8lB7xcAAAAJ" target="_blank">Lu Sheng</a
+                ><sup>✉</sup>
             </span>
           </div>
 
@@ -96,7 +102,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2404.15267" target="_blank"
+                <a href="https://ieeexplore.ieee.org/document/11125861" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -153,7 +159,7 @@
                   <span>Data</span>
                   </a>
               <!-- Demo Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -161,7 +167,7 @@
                   </span>
                   <span>Demo (Coming soon)</span>
                   </a>
-              </span>
+              </span> -->
             </div>
 
           </div>
@@ -191,13 +197,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent advancements in controllable human image generation have led to zero-shot generation using structural signals (e.g., pose, depth) or facial appearance. Yet, generating human images conditioned on multiple parts of human appearance remains challenging. Addressing this, we introduce Parts2Whole, a novel framework designed for generating customized portraits from multiple reference images, including pose images and various aspects of human appearance. To achieve this, we first develop a semantic-aware appearance encoder to retain details of different human parts, which processes each image based on its textual label to a series of multi-scale feature maps rather than one image token, preserving the image dimension. Second, our framework supports multi-image conditioned generation through a shared self-attention mechanism that operates across reference and target features during the diffusion process. We enhance the vanilla attention mechanism by incorporating mask information from the reference human images, allowing for precise selection of any part. Extensive experiments demonstrate the superiority of our approach over existing alternatives, offering advanced capabilities for multi-part controllable human image customization.
+            Multi-part portrait customization aims to generate realistic human images by assembling specified body parts from multiple reference images, with significant applications in digital human creation. Existing customization methods typically follow two approaches: (1) test-time fine-tuning, which learn concepts effectively but is time-consuming and struggles with multi-part composition; (2) generalizable feed-forward methods, which offer efficiency but lack fine control over appearance specifics. To address these limitations, we present Parts2Whole, a diffusion-based generalizable portrait generator that harmoniously integrates multiple reference parts into high-fidelity human images by our proposed multi-reference mechanism. To adequately characterize each part, we propose a detail-aware appearance encoder, which is initialized and inherits powerful image priors from the pre-trained denoising U-Net, enabling the encoding of detailed information from reference images. The extracted features are incorporated into the denoising U-Net by a shared self-attention mechanism, enhanced by mask information for precise part selection. Additionally, we integrate pose map conditioning to control the target posture of generated portraits, facilitating more flexible customization. Extensive experiments demonstrate the superiority of our approach over existing methods and applicability to related tasks like pose transfer and pose-guided human image generation, showcasing its versatile conditioning.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
-
+  
     <!-- Paper video. -->
     <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -289,11 +295,12 @@
     <div class="columns is-centered has-text-centered" style="padding-bottom: 1.5rem">
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
-<pre><code>@misc{huang2024parts2whole,
-  title={From Parts to Whole: A Unified Reference Framework for Controllable Human Image Generation},
-  author={Huang, Zehuan and Fan, Hongxing and Wang, Lipeng and Sheng, Lu},
-  journal={arXiv preprint arXiv:2404.15267},
-  year={2024}
+<pre><code>@article{fan2025parts2whole,
+  title={Parts2Whole: Generalizable Multi-Part Portrait Customization},
+  author={Fan, Hongxing and Huang, Zehuan and Wang, Lipeng and Chen, Haohua and Yin, Li and Sheng, Lu},
+  journal={IEEE Transactions on Image Processing},
+  year={2025},
+  publisher={IEEE}
 }</code></pre>
         </div>
       </div>
